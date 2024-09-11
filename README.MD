@@ -51,6 +51,8 @@ Link Aplikasi PWS: https://rifqisyandi-khairurrizal-toserbaqenn.pbp.cs.ui.ac.id/
 
     dan menambahkan path('', include('main.urls')) pada urlpatterns
 
+![Bagan](https://cdn.discordapp.com/attachments/1183391036442165391/1283274262135701577/Screenshot_2024-09-11_at_10.48.01.png?ex=66e265ca&is=66e1144a&hm=dbd06be2c791c13abf154f171944cf97fec89a8a8f2f98f135602aff03958e08&)
+
 B.
 
 Jawaban Pertanyaan
