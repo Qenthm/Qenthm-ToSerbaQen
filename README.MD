@@ -53,6 +53,8 @@ Link Aplikasi PWS: https://rifqisyandi-khairurrizal-toserbaqenn.pbp.cs.ui.ac.id/
 
 ![Bagan](https://cdn.discordapp.com/attachments/1183391036442165391/1283274262135701577/Screenshot_2024-09-11_at_10.48.01.png?ex=66e265ca&is=66e1144a&hm=dbd06be2c791c13abf154f171944cf97fec89a8a8f2f98f135602aff03958e08&)
 
+Client mengirim request kepada server Django. Django menangani request dengan mencari pola URL yang sesuai di file urls.py. Routing dilakukan dan menemukan fungsi show_main yang terletak di dalam views.py. Setelah request diarahkan ke views.py, Django menjalankan fungsi yang sesuai. Fungsi ini akan mengolah data dan menentukan apa yang harus ditampilkan di halaman tersebut. Jika fungsi di views.py membutuhkan data dari database, ia akan mengambilnya melalui model (misalnya Product). Django menggunakan ORM untuk mengubah query pada model menjadi perintah SQL dan mengembalikan data yang relevan. Setelah data diproses oleh views.py, biasanya data tersebut ditampilkan menggunakan template HTML. Template ini menggabungkan data dari model dan logika dari view untuk membuat halaman web yang akan dikirimkan kembali ke client. Setelah template diproses, Django mengembalikan response berupa halaman HTML ke browser client, yang kemudian menampilkan halaman tersebut kepada pengguna.
+
 B.
 
 Jawaban Pertanyaan
