@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-((9^z&%t^)$gd-=c5(xv45cg9k1rcwgx$y7i*keebuwhngn&es
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "rifqisyandi-khairurrizal-toserbaqenn.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "rifqisyandi-khairurrizal-toserbaqen.pbp.cs.ui.ac.id",
+                 "http://rifqisyandi-khairurrizal-toserbaqen.pbp.cs.ui.ac.id/",
+                 "https://rifqisyandi-khairurrizal-toserbaqen.pbp.cs.ui.ac.id/"]
 
 
 # Application definition
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'ToserbaQen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

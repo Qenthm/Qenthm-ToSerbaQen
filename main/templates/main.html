@@ -1,4 +1,45 @@
-<h1>Toserba Qen</h1>
+{% extends 'base.html' %}
+{% block content %}
 
-<p>Nama: {{ name }}</p>
-<p>Kelas: {{kelas}} </p>
+
+<h1>ToserbaQen</h1>
+
+<h5>NPM: </h5>
+<p>{{ npm }}<p>
+
+<h5>Name:</h5>
+<p>{{ name }}</p>
+
+<h5>Class:</h5>
+<p>{{ kelas }}</p>
+
+{% if not items %}
+<p>Belum ada data item pada ToserbaQen.</p>
+{% else %}
+<table>
+  <tr>
+    <th>item</th>
+    <th>time</th>
+    <th>description</th>
+    <th>price</th>
+  </tr>
+
+  {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
+  {% endcomment %} 
+  {% for mood_entry in items %}
+  <tr>
+    <td>{{mood_entry.item}}</td>
+    <td>{{mood_entry.time}}</td>
+    <td>{{mood_entry.description}}</td>
+    <td>{{mood_entry.price}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_new_items' %}">
+  <button>Add New Items</button>
+</a>
+{% endblock content %}

@@ -10,21 +10,24 @@ Link Aplikasi PWS: https://rifqisyandi-khairurrizal-toserbaqenn.pbp.cs.ui.ac.id/
 
 3. Mengisi file main/models.py
     Mengisi file models.py yang terletak di dalam direktori main dengan,
-    class Product(models.Model):
-        name = models.CharField(max_length=255)
-        price = models.IntegerField()
-        description = models.TextField()
 
-        def __str__(self):
-            return self.name
+        class Product(models.Model):
+            name = models.CharField(max_length=255)
+            price = models.IntegerField()
+            description = models.TextField()
+
+            def __str__(self):
+                return self.name
     
     untuk menambahkan field yang akan ditampilkan di web, yaitu nama produk, harga produk, dan deskripsi produk
 
 4. Membuat dan mengaplikasikan migrasi model
     Membuat migrasi model dengan menjalankan perintah,
+
     python manage.py makemigrations
 
     Untuk menerapkan migrasi tersebut dengan cara menjalankan perinthah,
+    
     python manage.py migrate 
 
 5. Mengedit file views.py
