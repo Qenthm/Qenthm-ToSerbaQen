@@ -1,4 +1,4 @@
-Link Aplikasi PWS: https://rifqisyandi-khairurrizal-toserbaqenn.pbp.cs.ui.ac.id/
+Link Aplikasi PWS: https://rifqisyandi-khairurrizal-toserbaqen.pbp.cs.ui.ac.id/
 
 1. Membuat Proyek Django Baru
     Saya memulai pengerjaan tugas individu 2 PBP ini dengan menjalankan perintah,
