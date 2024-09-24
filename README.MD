@@ -70,3 +70,28 @@ Jawaban Pertanyaan
 
     3. Mengapa model pada Django disebut sebagai ORM?: 
     Model di Django disebut sebagai ORM (Object-Relational Mapping) karena Django menyediakan mekanisme untuk menghubungkan objek Python dengan tabel database tanpa harus menulis SQL secara langsung. Setiap model di Django mewakili tabel dalam database, dan Django mengkonversi operasi pada objek menjadi perintah SQL yang diperlukan untuk melakukan operasi CRUD (Create, Read, Update, Delete) pada database.
+
+
+# Pertanyaan Tugas 3
+1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+Data Delivary sangat peting dalam sebuah platform karena data delivery merupakan cara untuk mengirim dan menerima informasi antara berbagai bagian sistem atau antara user dan server.
+
+2. Mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+JSON lebih popouler dibandingkan XML dikarenakan JSON lebih ringan dan mudah dibaca oleh manusia karena struktur yang lebih sederhana, JSON memiliki sintaks yang mirip dengan JavaScript, dan parsing JSON cenderung lebih cepat dibandingkan dengan XML.
+
+3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+method is_valid() digunakan untk memvalidasi isi input yang disi oleh user. Metode ini memeriksa apakah data yang dimasukkan ke dalam form sesuai dengan aturan validasi yang telah ditetapkan pada form. Fungsi ini penting untuk mencegah data yang salah atau yang tidak sesuai dengan format masukan ke dalam sistem.
+
+4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+CSRF (Cross-Site Request Forgery) token digunakan di Django untuk melindungi aplikasi dari serangan CSRF. Token ini memastikan bahwa permintaan form yang dikirim ke server berasal dari sumber yang aman. Tanpa csrf_token, aplikasi menjadi rentan terhadap serangan di mana penyerang bisa mengirimkan permintaan palsu atas nama user tanpa diketahui oleh user tersendiri. Misalnya, penyerang bisa mengeksploitasi form tanpa csrf_token untuk melakukan tindakan berbahaya seperti mengubah pengaturan akun pengguna atau melakukan transaksi tanpa izin.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Diawali dengan membuat folder baru pada folder utama, dan membuat file bernama base.html yang berfungsi sebagai kerangka umum untuk halaman web. dan menambahkan nama folder yang berisikan base.html ke dalam TEMPLATES yang terletak di dalam settings.py. Menambahkan line import uuid pada models.py untuk mengaplikasikan best practice untuk mencegah celah keamanan dan melakukan migrations karena telah mengubah models.py. Membuat file bernama forms.py yang berisi field yang akan dapat ditambahkan oleh user dan menambahkan import redirect ke dalam views.py. Membuat fungsi baru pada views.py yang menerima parameter request. Membuat file baru pada direktori main/templates bernama create_new_items.html. Dan mengubah main.html agar dapat mengoutput isi form. Membuat fungsi dimana user dapat melihat data dalam bentuk XML dan JSON dan mengembalikan data berdasarkan id dalam bentuk XML dan JSON.
+
+![XML](https://media.discordapp.net/attachments/1183391036442165391/1285803697950953546/image.png?ex=66eb9982&is=66ea4802&hm=e070f23d71b9965f0fac9ae3a9a59119e1ae56a10231b8485cbd60b2f10b1a24&=&format=webp&quality=lossless&width=1388&height=1036)
+
+![JSON](https://cdn.discordapp.com/attachments/1183391036442165391/1285803664635723788/image.png?ex=66eb997a&is=66ea47fa&hm=38e7eabb9705a3e3a93965accfb78960bb54de557e4707314b16e2edc8f264e8&)
+
+![XML by ID](https://cdn.discordapp.com/attachments/1183391036442165391/1285803617978417243/image.png?ex=66eb996f&is=66ea47ef&hm=ff33e4aca657a2150b5350dfedf6ef0193345f1ef4b25f3c8784c7c8da72c820&)
+
+![JSON by ID](https://cdn.discordapp.com/attachments/1183391036442165391/1285803638404419584/image.png?ex=66eb9974&is=66ea47f4&hm=ed809b18dc09b33e3e171f73a76472902a7e9cd0ca1c03b7b6757a510518c425&)
