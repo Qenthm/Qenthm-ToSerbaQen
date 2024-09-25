@@ -95,3 +95,18 @@ Diawali dengan membuat folder baru pada folder utama, dan membuat file bernama b
 ![XML by ID](https://cdn.discordapp.com/attachments/1183391036442165391/1285803617978417243/image.png?ex=66eb996f&is=66ea47ef&hm=ff33e4aca657a2150b5350dfedf6ef0193345f1ef4b25f3c8784c7c8da72c820&)
 
 ![JSON by ID](https://cdn.discordapp.com/attachments/1183391036442165391/1285803638404419584/image.png?ex=66eb9974&is=66ea47f4&hm=ed809b18dc09b33e3e171f73a76472902a7e9cd0ca1c03b7b6757a510518c425&)
+
+# Pertanyaan Tugas 4
+
+## 1. Apa perbedaan antara HttpResponseRedirect() dan redirect()?
+HttpResponseRedirect adalah kelas yang digunakan untuk mengembalikan respons HTTP yang mengarahkan pengguna ke URL tertentu. Pada penggunaannya, kita harus memberikan URL yang dituju secara manual. Sedangkan redirect(), di sisi lain, adalah fungsi yang lebih sederhana dan fleksibel. Ia dapat menerima URL, nama view, atau objek model sebagai parameter, dan secara otomatis menentukan URL yang benar berdasarkan input tersebut.
+
+## 2. Jelaskan cara kerja penghubungan model Product dengan User!
+Dalam Django, kita bisa menghubungkan model Product dengan User menggunakan foreign key. Hal ini memungkinkan setiap produk dapat terkait dengan pengguna tertentu, seperti penjual atau pemilik produk.
+```python
+class MoodEntry(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    ...
+```
+
