@@ -109,4 +109,26 @@ class MoodEntry(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     ...
 ```
+## 3. Apa perbedaan antara authentication dan authorization, dan apa yang dilakukan saat pengguna login?
+Authentication adalah proses verifikasi identitas pengguna, misalnya dengan meminta username dan password. Proses ini bertujuan untuk memastikan bahwa pengguna yang masuk adalah benar-benar pengguna yang terdaftar.
 
+Authorization adalah proses yang menentukan apakah pengguna yang sudah terotentikasi memiliki izin untuk mengakses sumber daya tertentu. Ini bergantung pada peran dan hak akses pengguna.
+
+Saat pengguna login:
+
+    1. Django pertama-tama melakukan authentication, memeriksa apakah kredensial (username dan password) yang diberikan cocok dengan pengguna di database.
+    2. Jika valid, pengguna akan di-authorize untuk melakukan tindakan tertentu berdasarkan izin yang mereka miliki.
+
+Django mengimplementasikan authentication dan authorization menggunakan middleware dan model User. Django juga menyediakan sistem permission dan group yang memungkinkan kita mengatur hak akses secara granular.
+
+## 4. Bagaimana Django mengingat pengguna yang telah login?
+Django mengingat pengguna yang telah login dengan menyimpan informasi sesi pengguna dalam cookies. Saat pengguna berhasil login, Django membuat sesi baru yang terhubung dengan identitas pengguna tersebut, dan menyimpan sesi ini sebagai cookie di browser pengguna.
+
+Cookies juga digunakan untuk keperluan lain, seperti menyimpan preferensi pengguna atau pengaturan personal. Namun, tidak semua cookies aman, karena cookies yang tidak di-secure dan tidak dienkripsi bisa diakses oleh pihak ketiga.
+
+Untuk mengamankan cookies, Django memungkinkan penggunaan secure cookies yang hanya dikirim melalui HTTPS dan dapat dienkripsi menggunakan mekanisme seperti session framework.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Pertama-tama menambahkan import UserCreationForm untuk membuat form yang berfungsi untuk membuat user baru. Menambahkan fungsi register untuk menghasilkan form register secara otomatis dan menghasilkan akun user ketika form disubmit. Membuat file baru register.html di dalam direktori templates dan import register ke dalam urls.py dan menambahkan pattern url register. Tambahkan import authenticate, login, dan AuthenticationForm ke dalam views.py. Menambahkan fungsi login_user ke file views.py dan membuat file baru login.html, mengimport login_user dan menambahkan url pattern login ke dalam urls.py. Lakukan hal yang sama dengan logout. Melakukan restriksi agar user harus melakukan login sebelum bisa menggunakan fitur.
+
+Selanjutnya kita mengimplementasikan cookies. Tambahkan import HttpResponseRedirect, reverse, dan datetime pada bagian paling atas. Menambahkan fungsionalitas menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. Mengubah fungsi logout_user, response.delete_cookie('last_login') berfungsi untuk menghapus cookie last_login saat pengguna melakukan logout. Menambahkan sesi terakhir login pada main.html. Menghubungkan model dengan User menggunakan foreignkey dan melakukan migrasi karen asudah mengubah model .
