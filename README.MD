@@ -197,3 +197,5 @@ Pada card_items.html tambahkan line
     </a>
   </div>
 ```
+### Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
+Membuat navbar.html pada folder templates yang terletak di root folder
