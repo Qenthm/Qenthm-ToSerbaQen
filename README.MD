@@ -155,18 +155,18 @@ Implementasi
 ## 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
 Flex box digunakan untuk tata letak satu dimensi (baris dan kolom), berguna untuk UI dan navigasi
 Penggunaan
-'''css
+```css
 .container {
   display: flex;
   justify-content: space-between;
 }
-'''
+```
 Grid layout digunakan untuk tata letak dua dimensi dan cocok digunakan untuk layout halaman keseluruhan
 Penggunaan
-'''css
+```css
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 10px;
 }
-'''
+```
