@@ -132,3 +132,70 @@ Untuk mengamankan cookies, Django memungkinkan penggunaan secure cookies yang ha
 Pertama-tama menambahkan import UserCreationForm untuk membuat form yang berfungsi untuk membuat user baru. Menambahkan fungsi register untuk menghasilkan form register secara otomatis dan menghasilkan akun user ketika form disubmit. Membuat file baru register.html di dalam direktori templates dan import register ke dalam urls.py dan menambahkan pattern url register. Tambahkan import authenticate, login, dan AuthenticationForm ke dalam views.py. Menambahkan fungsi login_user ke file views.py dan membuat file baru login.html, mengimport login_user dan menambahkan url pattern login ke dalam urls.py. Lakukan hal yang sama dengan logout. Melakukan restriksi agar user harus melakukan login sebelum bisa menggunakan fitur.
 
 Selanjutnya kita mengimplementasikan cookies. Tambahkan import HttpResponseRedirect, reverse, dan datetime pada bagian paling atas. Menambahkan fungsionalitas menambahkan cookie yang bernama last_login untuk melihat kapan terakhir kali pengguna melakukan login. Mengubah fungsi logout_user, response.delete_cookie('last_login') berfungsi untuk menghapus cookie last_login saat pengguna melakukan logout. Menambahkan sesi terakhir login pada main.html. Menghubungkan model dengan User menggunakan foreignkey dan melakukan migrasi karen asudah mengubah model .
+
+# Pertanyaan Tugas 5
+## 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+Urutan prioritas CSS selector (juga dikenal sebagai specificity) dari yang tertinggi ke terendah adalah Inline styles, ID selectors, Class selectors, attribute selectors, dan pseudo-classes, Element selectors dan pseudo-elements, dan Universal selector (*). Jika terdapat konflik, selector dengan prioritas lebih tinggi akan diterapkan. Jika prioritasnya sama, selector yang ditulis terakhir akan digunakan.
+
+## 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Dengan responsive design, pengguna dapat mengakses web aplikasi yang kita buat dengan perangkat apa saja dan ukuran layar apa saja, meningkatkan pengalama pengguna, memudahkan pemeliharaan, dan meningkatkan Search Engine Optimization
+Banyak wesbite yang sudah menerapkan responsve design seperti steamcommunity. Sedangkan tidak banyak website yang belum mengimplementasikan responsive design, seperti craigslist
+
+## 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+Margin adalah jarak di luar elemen, memisahkan elemen dari elemen lain. Sedangkan border adalah garis di sekeliling elemen yang terletak diantara margin dan padding dan padding adalah jarak antara konten dan elemennya.
+Implementasi 
+'''css
+.element {
+  margin: 10px;
+  border: 2px solid black;
+  padding: 5px;
+}
+'''
+
+## 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+Flex box digunakan untuk tata letak satu dimensi (baris dan kolom), berguna untuk UI dan navigasi
+Penggunaan
+```css
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+```
+Grid layout digunakan untuk tata letak dua dimensi dan cocok digunakan untuk layout halaman keseluruhan
+Penggunaan
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+```
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+### Implementasikan fungsi untuk menghapus dan mengedit product.
+Dengan menambahkan fungsi di views.py dan menambahkan import pada urls.py untuk mengakses fungsi tersebut
+### Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
+#### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
+Dengan membuat login.html, register html, dan create_new_items.html
+#### Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).
+Dengan membuat card_items.html dan mengubah sedikit dari code yang terdapat di tutorial
+### Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!
+Pada card_items.html tambahkan line
+```html
+ <div class="absolute top-4 right-4 flex space-x-2">
+    <a href="{% url 'main:edit_item' mood_entry.pk %}" 
+       class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+      </svg>
+    </a>
+    
+    <a href="{% url 'main:delete_item' mood_entry.pk %}" 
+       class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+```
+### Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
+Membuat navbar.html pada folder templates yang terletak di root folder
