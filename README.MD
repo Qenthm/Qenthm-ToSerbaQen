@@ -190,7 +190,8 @@ Pada card_items.html tambahkan line
     </a>
     
     <a href="{% url 'main:delete_item' mood_entry.pk %}" 
-       class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+       class="bg-red-500 ho6
+ver:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
       </svg>
@@ -199,3 +200,36 @@ Pada card_items.html tambahkan line
 ```
 ### Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
 Membuat navbar.html pada folder templates yang terletak di root folder
+
+# Pertanyaan Tugas 6
+## 1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+### Interaktif dan Dinamis
+JavaScript memungkinkan interaksi langsung pengguna dengan halaman web tanpa harus memuat ulang halaman secara keseluruhan.
+### Asynchronous Operations
+Dengan JavaScript, kita bisa melakukan operasi asynchronous, seperti pengambilan data dari server tanpa mengganggu pengalaman pengguna. Ini dapat dilakukan melalui fitur seperti fetch() yang menggunakan konsep asinkron untuk pengambilan data.
+### Validasi Data
+JavaScript dapat digunakan untuk melakukan validasi data di sisi pengguna (frontend), memastikan bahwa input yang diberikan sesuai sebelum dikirim ke server, yang dapat mengurangi beban server.
+### Kompatibilitas dan Ekstensi
+JavaScript adalah salah satu bahasa pemrograman web yang paling didukung dan kompatibel di semua browser, serta memiliki ekosistem besar dengan banyak pustaka dan framework seperti React, Vue, dan Angular yang mempercepat pengembangan.
+
+## 2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+Fungsi await digunakan dalam konteks fungsi asinkron untuk menunggu hasil dari promise sebelum melanjutkan eksekusi kode berikutnya. Ketika kita menggunakan fetch(), yang merupakan operasi asinkron, await menunggu hingga promise yang dihasilkan fetch() terpenuhi atau ditolak.
+### Apa yang Terjadi Jika Tidak Menggunakan await?
+operasi fetch() akan menghasilkan promise yang belum terselesaikan dan eksekusi kode akan berlanjut tanpa menunggu respons dari server. Sebagai akibatnya, jika kita mencoba mengakses hasil fetch() secara langsung tanpa menunggu, kita mungkin mendapatkan promise yang belum selesai, yang akan menyebabkan error saat mencoba memproses data yang belum ada.
+
+## 3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+csrf_exempt digunakan pada view di Django untuk menonaktifkan perlindungan Cross-Site Request Forgery (CSRF) pada permintaan tertentu, seperti AJAX POST. Secara default, Django menggunakan token CSRF untuk melindungi aplikasi dari serangan CSRF, yang mencegah pengiriman data dari sumber yang tidak sah.
+
+## 4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Pembersihan dan validasi data di backend sangat penting karena validasi di frontend dapat dengan mudah dilewati atau diabaikan oleh pengguna yang berusaha mengeksploitasi sistem. Data yang dikirimkan melalui jaringan bisa dimodifikasi, dan pemeriksaan hanya di frontend tidak dapat diandalkan.
+
+Backend memiliki akses penuh untuk memastikan bahwa data yang masuk benar, aman, dan sesuai dengan aturan yang telah ditentukan. Selain itu:
+
+### 1. Keamanan: Validasi di backend membantu mencegah serangan seperti SQL injection atau serangan lainnya yang bisa terjadi jika data pengguna tidak diproses dengan aman.
+### 2. Integritas Data: Memastikan bahwa data yang masuk ke database valid dan konsisten sangat penting untuk integritas sistem.
+### 3. Reliabilitas: Frontend JavaScript bisa dinonaktifkan oleh pengguna, sehingga backend tetap harus memastikan bahwa semua input yang diterima valid.
+
+Meskipun validasi di frontend meningkatkan pengalaman pengguna (lebih cepat dan interaktif), validasi di backend tetap merupakan kebutuhan wajib untuk menjaga keamanan dan keandalan aplikasi.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Menambahkan fungsi add_product_by_ajax agar mendukung AJAX GET. Membuat tombol add product by ajax yang membuka sebuah modal yang dapat digunakan untuk menambahkan produk secara asinkronus dengan mengimplementasikan script pada main.html dan akhirnya menambahkan proteksi terhadap XSS dengan cara clean dan strip html tags pada data yang dimasukkan
