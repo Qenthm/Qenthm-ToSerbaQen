@@ -113,6 +113,28 @@ def add_mood_entry_ajax(request):
 
     return HttpResponse(b"CREATED", status=201)
 
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
+...
+@csrf_exempt
+def create_mood_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+        new_mood = MoodEntry.objects.create(
+            user=request.user,
+            item=data["item"],
+            price=int(data["price"]),
+            description=data["description"]
+        )
+
+        new_mood.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
 def show_xml(request):
     data = MoodEntry.objects.filter(user=request.user)
     print(data)
